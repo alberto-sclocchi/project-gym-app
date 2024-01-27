@@ -1,0 +1,33 @@
+GYM APP PLAN
+
+Models:
+
+1.	User
+2.	Exercise
+3.	Calendar
+4.	Blog post
+5.	Body info – user can track progress
+
+
+Features:
+
+1.  Add exercise to a specific day in the calendar.
+2.	Add rep and sets count for each exercise in the calendar. 
+3.	Obverse all the exercise in the main page, including a gif that demonstrates the exercise.
+4.	Add blog and news (suggestions or comments) in the blog page. 
+5.	Edit and delete blog. 
+6.	Sort exercises based on muscle group and intensity. 
+7.	Edit the calendar: change the reps and sets number and move exercises to different days. 
+8.	Create more calendars that the user can see in his personal dashboard. 
+9.	Search exercises based on their name through a search bar. 
+10.	Create a detail page where user can learn more about the exercise. 
+11.	Delete an exercise from the calendar. 
+12.	Forgot password feature at log in. 
+13.	Generate random password and reset password. 
+14.	Receive confirmation email of sign up. 
+15.	Create user profile page, where user can upload picture and update password/email/username.
+16.	Create an admin-only page where they can ban or delete users. 
+17.	Admin can delete any blog post. 
+18.	Create a page where user can track their progress, based on their weight, height and body fat percentage.
+19.	Banned user cannot access their track report and their calendars, and they will receive an email regarding their ban. 
+

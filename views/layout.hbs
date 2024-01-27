@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>FitHub</title>
+      <link rel="stylesheet" href="/stylesheets/style.css" />
+   </head>
+
+   <body>
+      <nav>
+         <div id="app-routes">
+            <a href="/"><img src="/images/logo.jpeg" style="width:100px"></a>
+            <a href="/exercises">Exercises</a>
+         </div>
+
+         <div id="auth-btns">
+            {{#if currentUser}}
+               <form action="/log-out" method="post">
+               <button type="submit">Log out</button>
+               </form>
+            {{else}}
+               <a href="/log-in">Log in</a>
+               <a href="/sign-up">Sign Up</a>
+            {{/if}}
+         </div>
+      </nav>
+
+      {{#if successMessage}}
+        <div id="success">{{successMessage}}</div>
+      {{/if}}
+
+      {{#if bannedMessage}}
+        <div id="bannedMess">{{bannedMessage}}</div>
+      {{/if}}
+
+      {{{body}}}
+
+      {{#if errorMessage}}
+        <div id="error">{{errorMessage}}</div>
+      {{/if}}
+
+      <script src="/js/script.js"></script>
+   </body>
+
+</html>
