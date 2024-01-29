@@ -9,6 +9,8 @@ const logger = require("morgan");
 // https://www.npmjs.com/package/cookie-parser
 const cookieParser = require("cookie-parser");
 
+const flash = require('connect-flash');
+
 // ℹ️ Serves a custom favicon on each request
 // https://www.npmjs.com/package/serve-favicon
 const favicon = require("serve-favicon");
@@ -21,6 +23,8 @@ const path = require("path");
 module.exports = (app) => {
   // In development environment the app logs
   app.use(logger("dev"));
+
+  app.use(flash());
 
   // To have access to `body` property in the request
   app.use(express.json());

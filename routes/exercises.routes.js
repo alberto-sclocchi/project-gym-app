@@ -11,4 +11,13 @@ router.get("/", isLoggedIn, (req, res, next) => {
     })
 });
 
+
+router.get("/:id", isLoggedIn, (req, res, next) => {
+    Exercise.findById(req.params.id)
+    .then((exercise)=>{
+        res.render("exercises/exercise-details", exercise);
+    })
+});
+
+
 module.exports = router;

@@ -19,7 +19,7 @@ axios.request(options)
         Exercise.create({
             bodyPart: ex.bodyPart,
             equipment: ex.equipment,
-            giftUrl: ex.giftUrl,
+            gifUrl: ex.gifUrl,
             id: ex.id,
             name: ex.name,
             target: ex.target,

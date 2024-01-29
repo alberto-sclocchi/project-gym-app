@@ -1,0 +1,28 @@
+<h1 class="subtitle">{{name}}</h1>
+
+<dv>
+    <div id="exercise">
+        <div id="img-details">
+            <img src="{{gifUrl}}">
+        </div>
+        <div id="exercise-info">
+            <p><b>Body Part:</b> {{bodyPart}}</p>
+            <p><b>Equipment:</b> {{equipment}}</p>
+            <p><b>Target:</b> {{target}}</p>
+            <p><b>Secondary Muscles:</b>
+                {{#each secondaryMuscles}}
+                    {{this}} |
+                {{/each}}
+            </p>
+        </div>
+    </div>
+
+    <div id="instructions">
+        <b>Instructions</b>
+        <ol>
+            {{#each instructions}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ol>
+    </div>
+</dv>

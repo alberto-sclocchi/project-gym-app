@@ -58,7 +58,7 @@ router.post("/log-in", (req, res, next) => {
 
     if (email === '' || password === '') {
         req.flash("errorMessage", "Password and email cannot be blank");
-        res.redirect('/login');
+        res.redirect('/log-in');
         return;
     }
 
@@ -66,24 +66,19 @@ router.post("/log-in", (req, res, next) => {
     .then((user)=>{
         if (!user){
             req.flash("errorMessage", "Password or email are incorrect.");
-            res.redirect("/login");
+            res.redirect("/log-in");
             return;
         }
         else if (bcryptjs.compareSync(password, user.password)){
             req.session.currentUser = user;
             console.log("Current User:",  req.session.currentUser);
             
-            if(req.session.currentUser.isTempPassword){
-                req.flash("successMessage", "Your password needs to be updated.");
-                res.redirect("/login/resetPassword");
-            } else{
-                req.flash("successMessage", "You successfully logged in.");
-                res.redirect ("/");
-            }
+            req.flash("successMessage", "You successfully logged in.");
+            res.redirect ("/");
         }
         else{
             req.flash("errorMessage", "Password or email are incorrect.");
-            res.redirect("/login");
+            res.redirect("/log-in");
         }
     })
     .catch((err)=>{

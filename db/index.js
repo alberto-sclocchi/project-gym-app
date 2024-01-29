@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 // If no env has been set, we dynamically set it to whatever the folder name was upon the creation of the app
 
 mongoose
-  // .connect(process.env.MONGODB_URI)
   .connect(process.env.MONGODB_URI)
   .then((x) => {
     const databaseName = x.connections[0].name;

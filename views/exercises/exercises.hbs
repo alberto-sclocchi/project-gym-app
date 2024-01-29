@@ -1,7 +1,11 @@
-<h1>Exercises</h1>
+<h1 class="subtitle">Exercises</h1>
 
-{{#each exercises}}
-    <h3>{{name}}</h3>
-    <p>{{bodyPart}}</p>
-    <hr>
-{{/each}}
+<div id="exercises">
+    {{#each exercises}}
+        <div id="exercise-card">
+            <img src="{{gifUrl}}" alt="{{name}}">
+            <h3>{{name}}</h3>
+            <a href="/exercises/{{_id}}">Learn more</a>
+        </div>
+    {{/each}}
+</div>
