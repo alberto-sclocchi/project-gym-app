@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const bcryptjs = require("bcryptjs");
 const User = require("../models/User.model");
+const isLoggedIn = require("../utils/isLoggedIn.js");
+
 
 /* GET home page */
 router.get("/sign-up", (req, res, next) => {
@@ -24,6 +26,8 @@ router.post(("/sign-up"), async (req, res, next)=>{
             isTempPassword: false
         })
 
+        req.session.currentUser = newUser;
+
         // if(confirmationEmail){
         //     const signUpEmail = await transporter.sendMail({
         //         from: "movies&celebrities@mail.com",
@@ -40,7 +44,7 @@ router.post(("/sign-up"), async (req, res, next)=>{
         // }
         
         req.flash("successMessage", "Your account was successfully created.")
-        res.redirect("/login");
+        res.redirect("/user-profile");
     } catch(err) {
         req.flash("errorMessage", "Sign up unsuccessful " + err)
         res.redirect("/sign-up");
@@ -85,6 +89,13 @@ router.post("/log-in", (req, res, next) => {
         next(err);
     })
 });
+
+router.get("/user-profile", isLoggedIn, (req, res, next) =>{
+    User.findOne({email: req.session.currentUser.email})
+    .then((user)=>{
+        res.render("auth/user-profile", user)
+    })
+})
 
 router.post("/log-out", (req, res, next) =>{
     req.session.destroy((err)=>{

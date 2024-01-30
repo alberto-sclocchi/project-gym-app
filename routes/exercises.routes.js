@@ -4,7 +4,7 @@ const isLoggedIn = require("../utils/isLoggedIn.js");
 
 
 /* GET home page */
-router.get("/", isLoggedIn, (req, res, next) => {
+router.get("/", (req, res, next) => {
     Exercise.find()
     .then((exercises)=>{
         res.render("exercises/exercises", {exercises});

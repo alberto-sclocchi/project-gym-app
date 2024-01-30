@@ -1,14 +1,64 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0px;
 }
 
 a {
   color: #00b7ff;
+  font-size: 1.5em;
+  text-decoration: none;
 }
 
 h1 {
   color: 15px;
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px 5px 20px;
+  /* background-color: #1d6e8e; */
+}
+
+#app-routes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 70px;
+}
+
+#home-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+#home-link span{
+  color: black;
+  font-weight: 900;
+  margin-left: 5px;
+
+}
+#auth-btns a{
+  margin-right: 20px;
+}
+
+#auth-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#profile-page{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#profile-page span{
+  margin-left: 7px;
 }
 
 .subtitle{
@@ -29,6 +79,9 @@ h1 {
   justify-content: center;
   align-items: center;
   margin: 40px;
+  background-color: white;
+  padding: 20px 10px;
+  border-radius: 50px;
 }
 
 #exercise-card img{
@@ -66,4 +119,51 @@ h1 {
   align-items: center;
   width: 700px;
   margin: 20px 280px;
+}
+
+.form{
+  margin: 80px 100px 40px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 25px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#home-page{
+  height: 100vh;
+  width: 100vw;
+  background-image: url('./../images/home-img.jpeg');
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#home-info{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  bottom: 200px;
+  left: 30px;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1.3em
+}
+
+#home-btn a{
+  position: relative;
+  top: 100px;
+  right: 140px;
+  background-color: black;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 20px;
+  font-size: 1.7em;
+  border: 2px solid white;
 }
