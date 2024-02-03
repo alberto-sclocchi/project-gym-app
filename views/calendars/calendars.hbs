@@ -1,0 +1,107 @@
+<h1 class="subtitle">Calendars</h1>
+
+{{#each calendars}}
+<h2 id="calendar-title">{{title}}</h2>
+<div id="calendar">
+    <div class="calendar-day">
+        <h3>Monday</h2>
+        {{#each monday}}
+            <div class="exercise-calendar">
+                <a href="/exercises/{{exercise._id}}"><h4>{{exercise.name}}</h4></a>
+                <div class="routine-info">
+                    <p><b>Sets: </b>{{setCount}}</p>
+                    <p><b>Reps: </b>{{repCount}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="calendar-day">
+        <h3>Tuesday</h2>
+        {{#each tuesday}}
+            <div class="exercise-calendar">
+                <a href="/exercises/{{exercise._id}}"><h4>{{exercise.name}}</h4></a>
+                <div class="routine-info">
+                    <p><b>Sets: </b>{{setCount}}</p>
+                    <p><b>Reps: </b>{{repCount}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="calendar-day">
+        <h3>Wednesday</h2>
+        {{#each wednesday}}
+            <div class="exercise-calendar">
+                <a href="/exercises/{{exercise._id}}"><h4>{{exercise.name}}</h4></a>
+                <div class="routine-info">
+                    <p><b>Sets: </b>{{setCount}}</p>
+                    <p><b>Reps: </b>{{repCount}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="calendar-day">
+        <h3>Thursday</h2>
+        {{#each thursday}}
+            <div class="exercise-calendar">
+                <a href="/exercises/{{exercise._id}}"><h4>{{exercise.name}}</h4></a>
+                <div class="routine-info">
+                    <p><b>Sets: </b>{{setCount}}</p>
+                    <p><b>Reps: </b>{{repCount}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="calendar-day">
+        <h3>Friday</h2>
+        {{#each friday}}
+            <div class="exercise-calendar">
+                <a href="/exercises/{{exercise._id}}"><h4>{{exercise.name}}</h4></a>
+                <div class="routine-info">
+                    <p><b>Sets: </b>{{setCount}}</p>
+                    <p><b>Reps: </b>{{repCount}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="calendar-day">
+        <h3>Saturday</h2>
+        {{#each saturday}}
+            <div class="exercise-calendar">
+                <a href="/exercises/{{exercise._id}}"><h4>{{exercise.name}}</h4></a>
+                <div class="routine-info">
+                    <p><b>Sets: </b>{{setCount}}</p>
+                    <p><b>Reps: </b>{{repCount}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="calendar-day">
+        <h3>Sunday</h2>
+        {{#each sunday}}
+            <div class="exercise-calendar">
+                <a href="/exercises/{{exercise._id}}"><h4>{{exercise.name}}</h4></a>
+                <div class="routine-info">
+                    <p><b>Sets: </b>{{setCount}}</p>
+                    <p><b>Reps: </b>{{repCount}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+
+{{/each}}
+
+
+<a href="/calendars/new">Add Calendar</a>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"></script>
+<script src="/js/update-title-calendar.js"></script>

@@ -167,3 +167,43 @@ nav{
   font-size: 1.7em;
   border: 2px solid white;
 }
+
+#calendar-title{
+  margin: 75px 20px 30px 20px;
+  text-align: center;
+}
+
+#calendar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+}
+
+.calendar-day{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 250px;
+  overflow: scroll;
+}
+
+.exercise-calendar{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 20px 10px;
+}
+
+.exercise-calendar a{
+  font-size: 17px;
+}
+
+
+.routine-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 10px;
+}
