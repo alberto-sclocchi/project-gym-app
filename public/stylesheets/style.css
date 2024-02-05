@@ -200,10 +200,14 @@ nav{
   font-size: 17px;
 }
 
-
 .routine-info{
   display: flex;
   flex-direction: row;
   justify-content: center;
   column-gap: 10px;
+}
+
+#profile-img{
+  width: 150px;
+  border-radius: 100px;
 }

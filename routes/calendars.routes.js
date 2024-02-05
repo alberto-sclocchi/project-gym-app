@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Calendar = require("../models/Calendar.model.js");
+const Routine = require("../models/Routine.model.js")
 const isLoggedIn = require("../utils/isLoggedIn.js");
 
 
@@ -82,6 +83,25 @@ router.post("/new", isLoggedIn, (req, res, next) => {
     .catch((err)=>{
         next(err);
     })
+});
+
+router.post("/delete/:id", isLoggedIn, async (req, res, next) => {
+    try{
+        const calendar = await Calendar.findById(req.params.id);
+    
+        if(!calendar.addedBy.equals(req.session.currentUser._id)){
+            res.redirect("/calendars");
+            return;
+        }
+
+        const routineDeleted = await Routine.deleteMany({_id: {$in: [calendar.monday, calendar.tuesday, calendar.wednesday, calendar.thursday, calendar.friday, calendar.saturday, calendar.sunday]}});
+        const calendarDeleted = await Calendar.findByIdAndDelete(req.params.id);
+
+        res.redirect("/calendars");
+
+    }catch (err){
+        next(err);
+    }
 });
 
 module.exports = router;

@@ -1,6 +1,7 @@
 <h1 class="subtitle">Welcome, {{username}}</h1>
 
 <div class="form">
+    <img src="{{image}}" id="profile-img">
     <p><b>Username:</b> {{username}}</p>
     <p><b>Email:</b> {{email}}</p>
     <p><b>Target:</b>
@@ -8,6 +9,9 @@
     {{#if admin}} admin{{/if}}
     {{#if banned}} banned{{/if}}
     </p>
+    <div>
+        <a href="/profile/edit">Edit Profile</a>
+    </div>
     <form action="/log-out" method="post" id="log-out-btn">
         <button type="submit">Log out</button>
     </form>

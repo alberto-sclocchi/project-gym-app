@@ -21,7 +21,7 @@
 
          <div id="auth-btns">
             {{#if currentUser}}
-               <a href="/user-profile" id="profile-page"><img src="/images/profile.png" style="width:35px"><span>{{currentUser.username}}</span></a>
+               <a href="/user-profile" id="profile-page"><img src="{{currentUser.image}}" style="width:40px; border-radius:100px"><span>{{currentUser.username}}</span></a>
             {{else}}
                <a href="/log-in">Log in</a>
                <a href="/sign-up">Sign Up</a>

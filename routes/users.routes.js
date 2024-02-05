@@ -2,6 +2,7 @@ const router = require('express').Router();
 const bcryptjs = require("bcryptjs");
 const User = require("../models/User.model");
 const isLoggedIn = require("../utils/isLoggedIn.js");
+const uploadImg = require("../config/cloudinary.js");
 
 
 /* GET home page */
@@ -88,6 +89,33 @@ router.post("/log-in", (req, res, next) => {
     .catch((err)=>{
         next(err);
     })
+});
+
+router.get("/profile/edit", (req, res, next) => {
+    res.render("auth/edit-profile", {user: req.session.currentUser});
+});
+
+router.post("/profile/edit", uploadImg.single("image"), (req, res, next) => {
+    const {username, email} = req.body;
+
+    const updateUser = {
+        username,
+        email
+    };
+
+    if(req.file){
+        updateUser.image = req.file.path;
+        req.session.currentUser.image = updateUser.image;
+    }
+
+    User.findByIdAndUpdate(req.session.currentUser._id, updateUser)
+    .then(()=>{
+        res.redirect("/user-profile");
+    })
+    .catch((err)=>{
+        next(err);
+    })
+
 });
 
 router.get("/user-profile", isLoggedIn, (req, res, next) =>{
