@@ -211,3 +211,16 @@ nav{
   width: 150px;
   border-radius: 100px;
 }
+
+#progress {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 50px 10px;
+}
+
+.progress-data{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,47 @@
+<h1 class="subtitle">Track Progress</h1>
+
+<div id="progress">
+    <div class="progress-data">
+        <h3>Weight</h3>
+        {{#each progress}}
+            <p>{{weight}} Kg</p>
+        {{/each}}
+    </div>
+
+    <div class="progress-data">
+        <h3>Height</h3>
+        {{#each progress}}
+            <p>{{height}} m</p>
+        {{/each}}
+    </div>
+
+    <div class="progress-data">
+        <h3>Body Fat Percentage</h3>
+        {{#each progress}}
+            <p>{{fatPercentage}} %</p>
+        {{/each}}
+    </div>
+
+    <div class="progress-data">
+        <h3>BMI</h3>
+        {{#each progress}}
+            <p>{{bmi}}</p>
+        {{/each}}
+    </div>
+
+    <div class="progress-data">
+        <h3>BMI</h3>
+        {{#each progress}}
+            <p>{{category}}</p>
+        {{/each}}
+    </div>
+
+    <div class="progress-data">
+        <h3>Date</h3>
+        {{#each date}}
+            <p>{{this}}</p>
+        {{/each}}
+    </div>
+</div>
+
+<a href="/progress/add">Add New Data</a>

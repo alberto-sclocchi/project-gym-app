@@ -103,6 +103,10 @@ router.post("/profile/edit", uploadImg.single("image"), (req, res, next) => {
         email
     };
 
+    req.session.currentUser.username = updateUser.username;
+    req.session.currentUser.email = updateUser.email;
+
+
     if(req.file){
         updateUser.image = req.file.path;
         req.session.currentUser.image = updateUser.image;

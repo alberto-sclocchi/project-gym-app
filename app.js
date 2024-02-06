@@ -38,6 +38,7 @@ app.use("/", require("./routes/index.routes"));
 app.use("/", require("./routes/users.routes"));
 app.use("/exercises", require("./routes/exercises.routes"));
 app.use("/calendars", require("./routes/calendars.routes"));
+app.use("/progress", require("./routes/progress.routes"));
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
