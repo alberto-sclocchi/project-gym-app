@@ -12,6 +12,9 @@ router.get("/", isLoggedIn, (req, res, next) => {
         
         res.render("progress/track-progress", {progress, date})
     })
+    .catch((err)=>{
+        next(err);
+    })
 });
 
 router.get("/add", isLoggedIn, (req, res, next) => {

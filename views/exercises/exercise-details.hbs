@@ -1,4 +1,4 @@
-<h1 class="subtitle">{{name}}</h1>
+<h1 class="subtitle">{{exercise.name}}</h1>
 
 <dv>
     <div id="exercise">
@@ -6,11 +6,11 @@
             <img src="{{gifUrl}}">
         </div>
         <div id="exercise-info">
-            <p><b>Body Part:</b> {{bodyPart}}</p>
-            <p><b>Equipment:</b> {{equipment}}</p>
+            <p><b>Body Part:</b> {{exercise.bodyPart}}</p>
+            <p><b>Equipment:</b> {{exercise.equipment}}</p>
             <p><b>Target:</b> {{target}}</p>
             <p><b>Secondary Muscles:</b>
-                {{#each secondaryMuscles}}
+                {{#each exercise.secondaryMuscles}}
                     {{this}} |
                 {{/each}}
             </p>
@@ -20,10 +20,10 @@
     <div id="instructions">
         <b>Instructions</b>
         <ol>
-            {{#each instructions}}
+            {{#each exercise.instructions}}
                 <li>{{this}}</li>
             {{/each}}
         </ol>
     </div>
-    <a href="/exercises/add/{{_id}}">Add</a>
+    <a href="/exercises/add/{{exercise._id}}">Add</a>
 </dv>

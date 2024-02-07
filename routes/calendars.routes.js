@@ -85,6 +85,21 @@ router.post("/new", isLoggedIn, (req, res, next) => {
     })
 });
 
+router.post("/edit/title/:id", isLoggedIn, (req, res, next) => {
+    const title = req.body;
+
+    Calendar.findByIdAndUpdate(
+        req.params.id,
+        title, 
+        {new: true}
+    ).then((response)=>{
+        res.json(response);
+    })
+    .catch((err)=>{
+        next(err);
+    })
+})
+
 router.post("/delete/:id", isLoggedIn, async (req, res, next) => {
     try{
         const calendar = await Calendar.findById(req.params.id);
@@ -94,7 +109,7 @@ router.post("/delete/:id", isLoggedIn, async (req, res, next) => {
             return;
         }
 
-        const routineDeleted = await Routine.deleteMany({_id: {$in: [calendar.monday, calendar.tuesday, calendar.wednesday, calendar.thursday, calendar.friday, calendar.saturday, calendar.sunday]}});
+        const routineDeleted = await Routine.deleteMany({_id: {$in: [...calendar.monday, ...calendar.tuesday, ...calendar.wednesday, ...calendar.thursday, ...calendar.friday, ...calendar.saturday, ...calendar.sunday]}});
         const calendarDeleted = await Calendar.findByIdAndDelete(req.params.id);
 
         res.redirect("/calendars");

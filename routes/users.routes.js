@@ -3,6 +3,7 @@ const bcryptjs = require("bcryptjs");
 const User = require("../models/User.model");
 const isLoggedIn = require("../utils/isLoggedIn.js");
 const uploadImg = require("../config/cloudinary.js");
+const transporter = require("../config/nodemailer");
 
 
 /* GET home page */
@@ -12,7 +13,7 @@ router.get("/sign-up", (req, res, next) => {
 
 router.post(("/sign-up"), async (req, res, next)=>{
     const saltRounds = 10;
-    const {username, email, password} = req.body;
+    const {username, email, password, confirmationEmail} = req.body;
 
     try{
         const salt = await bcryptjs.genSalt(saltRounds);
@@ -27,23 +28,23 @@ router.post(("/sign-up"), async (req, res, next)=>{
             isTempPassword: false
         })
 
+        if(confirmationEmail){
+            const signUpEmail = await transporter.sendMail({
+                from: "fitHUB@mail.com",
+                to: email,
+                subject: "Thank you for signing up",
+                text: "Thank you for signing up", 
+                html: `<h2>Hi there, ${username}</h2>
+                <h4>Thank you for signing up in FitHub.<h4>
+                <hr>
+                <p>You can now add your workout routines and track your physical progress. Good luck 😊.
+                <br><img src="https://i.gifer.com/2DV.gif" style="width: 150px; margin-top: 20px">
+                <p> Sincerely, <br>your FitHub Team</p>`
+            });
+        }
+
         req.session.currentUser = newUser;
 
-        // if(confirmationEmail){
-        //     const signUpEmail = await transporter.sendMail({
-        //         from: "movies&celebrities@mail.com",
-        //         to: email,
-        //         subject: "Thank you for signing up",
-        //         text: "Thank you for signing up", 
-        //         html: `<h2>Hi there, ${username}</h2>
-        //         <h4>Thank you for signing up. Can't wait for you to add new movies in our database.<h4>
-        //         <hr>
-        //         <p>You can now add your favorite movies and showcase them to other users. Good luck 😊.
-        //         <br><img src="https://i.gifer.com/2DV.gif" style="width: 150px; margin-top: 20px">
-        //         <p> Sincerely, <br>your Movies&Celebrities Team</p>`
-        //     });
-        // }
-        
         req.flash("successMessage", "Your account was successfully created.")
         res.redirect("/user-profile");
     } catch(err) {

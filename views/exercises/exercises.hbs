@@ -3,9 +3,8 @@
 <div id="exercises">
     {{#each exercises}}
         <div id="exercise-card">
-            <img src="{{gifUrl}}" alt="{{name}}">
             <h3>{{name}}</h3>
-            <a href="/exercises/{{_id}}">Learn more</a>
+            <a href="/exercises/{{bodyPart}}/{{id}}">Learn more</a>
         </div>
     {{/each}}
 </div>

@@ -16,16 +16,37 @@ const options = {
 axios.request(options)
 .then((response)=>{
     response.data.forEach((ex)=>{
-        Exercise.create({
-            bodyPart: ex.bodyPart,
-            equipment: ex.equipment,
-            gifUrl: ex.gifUrl,
-            id: ex.id,
-            name: ex.name,
-            target: ex.target,
-            secondaryMuscles: ex.secondaryMuscles,
-            instructions: ex.instructions
-        })
-    });
-})
 
+        if(!(ex.bodyPart == "cardio") && !(ex.bodyPart == "neck")){
+            const exercise = {
+                equipment: ex.equipment,
+                id: ex.id,
+                name: ex.name,
+                target: ex.target,
+                secondaryMuscles: ex.secondaryMuscles,
+                instructions: ex.instructions
+            }
+    
+            if(ex.bodyPart == "upper legs" || ex.bodyPart == "lower legs"){
+                exercise.bodyPart = "legs";
+            }
+            else if(ex.bodyPart == "upper arms" || ex.bodyPart == "lower arms"){
+                exercise.bodyPart = "arms";
+            }
+            else if(ex.bodyPart == "shoulders"){
+                exercise.bodyPart = "shoulders";
+            }
+            else if(ex.bodyPart == "back"){
+                exercise.bodyPart = "back";
+            }
+            else if(ex.bodyPart == "waist"){
+                exercise.bodyPart = "waist";
+            }
+            else if(ex.bodyPart == "chest"){
+                exercise.bodyPart = "chest";
+            }
+            
+            Exercise.create(exercise)
+        }
+    })
+})
