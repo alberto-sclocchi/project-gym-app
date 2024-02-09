@@ -4,15 +4,16 @@ const Calendar = require("../models/Calendar.model");
 const Routine = require("../models/Routine.model");
 const isLoggedIn = require("../utils/isLoggedIn.js");
 const axios = require("axios");
+const isTempPassword = require ("../utils/isTempPassword.js")
 
 
 /* GET home page */
-router.get("/", (req, res, next) => {
+router.get("/", isTempPassword, (req, res, next) => {
     res.render("exercises/body-parts")
 });
 
 
-router.get("/:bodyPart", (req, res, next) => {
+router.get("/:bodyPart", isTempPassword, (req, res, next) => {
     Exercise.find({bodyPart: req.params.bodyPart})
     .then((exercises)=>{
         res.render("exercises/exercises", {exercises});
@@ -22,7 +23,7 @@ router.get("/:bodyPart", (req, res, next) => {
     })
 });
 
-router.get("/add/:id", isLoggedIn, async (req, res, next) => {
+router.get("/add/:id", isLoggedIn, isTempPassword, async (req, res, next) => {
     
     try{
         const calendars = await Calendar.find({addedBy: req.session.currentUser._id});
@@ -35,7 +36,7 @@ router.get("/add/:id", isLoggedIn, async (req, res, next) => {
     
 });
 
-router.post("/add/:id", isLoggedIn, async (req, res, next)=>{
+router.post("/add/:id", isLoggedIn, isTempPassword, async (req, res, next)=>{
     const {calendar, day, setCount, repCount} = req.body;
 
     try{
@@ -44,7 +45,8 @@ router.post("/add/:id", isLoggedIn, async (req, res, next)=>{
         const routineCreated = await Routine.create({
             exercise: exerciseAdded,
             setCount,
-            repCount
+            repCount,
+            day
         });
 
         const calendarUpdated = await Calendar.updateMany(
@@ -60,7 +62,7 @@ router.post("/add/:id", isLoggedIn, async (req, res, next)=>{
 })
 
 
-router.get("/:bodyPart/:idApi", isLoggedIn, async (req, res, next) => {
+router.get("/:bodyPart/:idApi", isLoggedIn, isTempPassword, async (req, res, next) => {
 
     try{
         // const options = {

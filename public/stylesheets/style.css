@@ -251,3 +251,15 @@ nav{
 #change-title-div{
   display: none;
 }
+
+#progress-delete{
+  margin: 10px;
+}
+
+#delete-btns-progress{
+  margin-top: 53px;
+}
+
+#forgot-div{
+  margin: 20px;
+}

@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const Progress = require("../models/Progress.model.js")
 const isLoggedIn = require("../utils/isLoggedIn.js");
+const isTempPassword = require ("../utils/isTempPassword.js")
+
 
 
 /* GET home page */
-router.get("/", isLoggedIn, (req, res, next) => {
+router.get("/", isLoggedIn, isTempPassword, (req, res, next) => {
     Progress.find()
     .then((allProgress)=>{
         const progress = allProgress.filter((pro)=> pro.addedBy.equals(req.session.currentUser._id));
@@ -17,7 +19,7 @@ router.get("/", isLoggedIn, (req, res, next) => {
     })
 });
 
-router.get("/add", isLoggedIn, (req, res, next) => {
+router.get("/add", isLoggedIn, isTempPassword, (req, res, next) => {
     res.render("progress/add-progress");
 });
 
@@ -53,6 +55,17 @@ router.post("/add", isLoggedIn, (req, res, next) => {
     })
     .catch((err)=>{
         next(err);
+    })
+});
+
+router.post("/delete/:id", isLoggedIn, isTempPassword, (req, res, next) => {
+    Progress.findByIdAndDelete(req.params.id)
+    .then(()=>{
+        req.flash("successMessage","Progress was successfully deleted.");
+        res.redirect("/progress");
+    })
+    .catch((err)=>{
+        next(err)
     })
 });
 

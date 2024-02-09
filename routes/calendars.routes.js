@@ -2,10 +2,11 @@ const router = require('express').Router();
 const Calendar = require("../models/Calendar.model.js");
 const Routine = require("../models/Routine.model.js")
 const isLoggedIn = require("../utils/isLoggedIn.js");
+const isTempPassword = require ("../utils/isTempPassword.js")
 
 
 /* GET home page */
-router.get("/", isLoggedIn, (req, res, next) => {
+router.get("/", isLoggedIn, isTempPassword, (req, res, next) => {
 
     Calendar.find()
     .populate({
@@ -66,7 +67,7 @@ router.get("/", isLoggedIn, (req, res, next) => {
     })
 });
 
-router.get("/new", isLoggedIn, (req, res, next) => {
+router.get("/new", isLoggedIn, isTempPassword, (req, res, next) => {
     res.render("calendars/new-calendar")
 });
 
@@ -85,7 +86,7 @@ router.post("/new", isLoggedIn, (req, res, next) => {
     })
 });
 
-router.post("/edit/title/:id", isLoggedIn, (req, res, next) => {
+router.post("/edit/title/:id", isLoggedIn, isTempPassword, (req, res, next) => {
     const title = req.body;
 
     Calendar.findByIdAndUpdate(
@@ -100,7 +101,7 @@ router.post("/edit/title/:id", isLoggedIn, (req, res, next) => {
     })
 })
 
-router.post("/delete/:id", isLoggedIn, async (req, res, next) => {
+router.post("/delete/:id", isLoggedIn, isTempPassword, async (req, res, next) => {
     try{
         const calendar = await Calendar.findById(req.params.id);
     
