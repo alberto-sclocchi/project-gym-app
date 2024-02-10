@@ -14,18 +14,18 @@
          <div id="app-routes">
             <a href="/" id="home-link"><img src="/images/logo.png" style="width:60px"><span>FitHub</span></a>
             {{#if currentUser}}
-            <a href="/exercises">Exercises</a>
-            <a href="/calendars">Calendars</a>
-            <a href="/progress">Track Progress</a>
+            <a href="/exercises" class="nav-link" style="margin-left: 50px">Exercises</a>
+            <a href="/calendars"  class="nav-link">Calendars</a>
+            <a href="/progress"  class="nav-link">Track Progress</a>
             {{/if}}
          </div>
 
          <div id="auth-btns">
             {{#if currentUser}}
-               <a href="/user-profile" id="profile-page"><img src="{{currentUser.image}}" style="width:40px; border-radius:100px"><span>{{currentUser.username}}</span></a>
+               <a href="/user-profile" id="profile-page"><img src="{{currentUser.image}}" style="width:40px; border-radius:100px;border: 2px solid black"><span>{{currentUser.username}}</span></a>
             {{else}}
-               <a href="/log-in">Log in</a>
-               <a href="/sign-up">Sign Up</a>
+               <a href="/log-in"  class="nav-link">Log in</a>
+               <a href="/sign-up"  class="nav-link">Sign Up</a>
             {{/if}}
          </div>
       </nav>
@@ -46,5 +46,4 @@
 
       <script src="/js/script.js"></script>
    </body>
-
 </html>

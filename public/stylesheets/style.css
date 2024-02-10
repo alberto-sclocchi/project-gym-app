@@ -1,6 +1,7 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0px;
+  background-color: #F0CC2B;
 }
 
 a {
@@ -19,7 +20,15 @@ nav{
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px 5px 20px;
-  /* background-color: #1d6e8e; */
+  border-bottom: 5px solid black;
+  background-color: white;
+}
+
+.nav-link{
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
 }
 
 #app-routes{
@@ -55,6 +64,8 @@ nav{
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: black;
+  font-weight: 900;
 }
 
 #profile-page span{
@@ -63,6 +74,7 @@ nav{
 
 .subtitle{
   text-align: center;
+  margin-top: 50px;
 }
 
 #exercises{
@@ -74,6 +86,8 @@ nav{
 
 #exercise-card{
   box-sizing: border-box;
+  width: 250px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,16 +96,20 @@ nav{
   background-color: white;
   padding: 20px 10px;
   border-radius: 50px;
-}
-
-#exercise-card img{
-  width: 300px;
+  background-color: black;
+  color: white
 }
 
 #exercise-card h3{
   width: 200px;
   text-align: center;
   margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+#exercise-card a{
+  font-size: 15px;
 }
 
 #exercise{
@@ -103,10 +121,57 @@ nav{
   column-gap: 50px;
 }
 
+#exercise-detail-page{
+  background-color: white;
+  margin: 50px 150px;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: 15px;
+  width: 1100px;
+
+}
+
+#exercise-title{
+  display: flex;
+  flex-direction: row;  
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 175px;
+}
+
+#exercise-title a{
+  margin-top: 33px;
+  background-color: black;
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+}
+
+#exercise-detail-page a{
+  background-color: black;
+  color:white;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 20px;
+}
+
 #exercise-info{
   display: flex;
   flex-direction: column;
   row-gap: 15px;
+  background-color: black;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 20px;
+}
+
+#instructions b{
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 17px;
 }
 
 #instructions li{
@@ -118,18 +183,47 @@ nav{
   flex-direction: column;
   align-items: center;
   width: 700px;
-  margin: 20px 280px;
+  margin: 50px 200px;
+  background-color: black;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 20px;
+
 }
 
 .form{
-  margin: 80px 100px 40px 100px;
+  margin: 80px 300px 40px 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  row-gap: 25px;
+  row-gap: 30px;
   font-size: 1.5em;
   text-align: center;
+  background-color: white;
+  color: black;
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.form input{
+  height: 20px;
+  font-size: 15px;
+}
+
+.form button{
+  background-color: black;
+  border:none;
+  border-radius:20px;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.form select{
+  margin-top: 10px;
+  width: 100px;
+  height: 25px;
+  font-size: 14px;
 }
 
 #home-page{
@@ -153,7 +247,8 @@ nav{
   background-color: white;
   padding: 10px 20px;
   border-radius: 20px;
-  font-size: 1.3em
+  font-size: 1.3em;
+  background-color: #F0CC2B;
 }
 
 #home-btn a{
@@ -184,6 +279,29 @@ nav{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin: 20px 50px;
+  border-radius: 20px;
+}
+
+#calendar-page{
+  background-color: white;
+  margin: 30px 50px;
+  padding: 15px 0px;
+  border-radius: 20px;
+}
+
+#calendar-page form{
+  display: flex;
+  justify-content: center;
+}
+
+#delete-calendar{
+  background-color: black;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 17px;
+  padding: 10px;
 }
 
 .calendar-day{
@@ -199,9 +317,29 @@ nav{
   display: flex;
   text-align: center;
   flex-direction: column;
-  border: 1px solid black;
+  background-color: black;
+  border-radius: 20px;
+  color: white;
+  font-size: 15px;
   padding: 10px;
   width: 150px;
+  margin: 10px 0px;
+}
+
+.exercise-calendar button{
+  background-color: white;
+  border-radius: 20px;
+  border:none;
+  padding: 5px 10px;
+  margin-top: 10px
+}
+
+#add-calendar{
+  background-color: black;
+  color: white;
+  margin: 50px;
+  border-radius: 20px;
+  padding: 10px
 }
 
 .exercise-calendar a{
@@ -218,13 +356,67 @@ nav{
 #profile-img{
   width: 150px;
   border-radius: 100px;
+  border: 4px solid black;
+  margin-bottom: 10px;
 }
 
 #progress {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 50px 10px;
+  margin: 50px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px 0px;
+  font-size: 1.1em;
+}
+
+#add-progress{
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+#add-progress a{
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+#progress button{
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#edit-button{
+  border-radius: 100px;
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+#input-calendar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+#input-calendar input{
+  border-radius: 20px;
+  border: 1px solid black
+}
+
+#input-calendar button{
+  border-radius: 100px;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  padding: 5px 10px;
 }
 
 .progress-data{
@@ -241,11 +433,31 @@ nav{
   margin: 50px;
 }
 
-#body-part-div{
+.body-part-div{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 100px;
+  justify-content: center;
+  margin: 25px 75px;
+  background-color: white;
+  padding: 10px 20px;
+  border: 5px solid black;
+  border-radius: 20px;
+  height: 300px;
+  width: 150px;
+}
+
+.body-part-div a{
+  margin-top: 10px;
+  background-color: black;
+  color: white;
+  padding: 0px 20px;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+#title-div{
+  font-size: 17px;
 }
 
 #change-title-div{
@@ -263,3 +475,154 @@ nav{
 #forgot-div{
   margin: 20px;
 }
+
+#user-profile{
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 400px 20px 400px;
+  font-size: 1.3em;
+  padding: 20px;
+}
+
+#user-profile-btns{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 30px;
+}
+
+#user-profile-btns a,
+#user-profile-btns button{
+  background-color: black;
+  font-size: 20px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+}
+
+.form-auth{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.4em;
+  row-gap: 30px;
+  margin: 50px;
+  font-weight: 900;
+}
+
+.form-auth div{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.form-auth label{
+  margin-bottom: 10px;
+}
+
+.form-auth input{
+  width: 350px;
+  height: 25px;
+  border-radius: 20px;
+  border: 1px solid black;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+#confirmation-email input{
+  width: 25px;
+  height: 20px;
+}
+
+#confirmation-email{
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+#log-in-btns{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  text-align: center;
+  font-size: 15px;
+  row-gap: 20px;
+}
+
+#log-in-btns button,
+#create-account,
+#confirm-changes-btn{
+  background-color: black;
+  color: white;
+  font-size: 22px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+#log-in-btns a{
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+#img-div-edit input{
+  border: none;
+  font-size: 17px;
+}
+
+footer{
+  padding: 50px;
+  background-color: black;
+  mask-position: fixed;
+  bottom: 0;
+}
+
+#quote{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px;
+  font-size: 1.8em;
+  row-gap: 20px;
+  font-weight: 900;
+}
+
+.no-header{
+  margin: 50px;
+  text-align: center;
+  font-size: 20px;
+  background-color: white;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+#error{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  background-color: lightcoral;
+  text-align: center;
+  padding: 20px;
+  margin: 0px 450px;
+}
+
+#success{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  background-color: lightgreen;
+  text-align: center;
+  padding: 10px 5px;
+  margin: 20px 500px;
+}
+

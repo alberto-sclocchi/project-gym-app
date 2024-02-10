@@ -1,12 +1,13 @@
 require("../db")
 const axios =  require("axios");
 const Exercise = require("../models/Exercise.model");
+const capitalize = require("../utils/capitalize");
 
 
 const options = {
     method: 'GET',
     url: 'https://exercisedb.p.rapidapi.com/exercises',
-    params: {limit: '50'},
+    params: {limit: '1300'},
     headers: {
         'X-RapidAPI-Key': process.env.API_KEY_EX,
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
@@ -21,11 +22,12 @@ axios.request(options)
             const exercise = {
                 equipment: ex.equipment,
                 id: ex.id,
-                name: ex.name,
                 target: ex.target,
                 secondaryMuscles: ex.secondaryMuscles,
                 instructions: ex.instructions
             }
+
+            exercise.name = capitalize(ex.name);
     
             if(ex.bodyPart == "upper legs" || ex.bodyPart == "lower legs"){
                 exercise.bodyPart = "legs";

@@ -1,6 +1,9 @@
-<h1 class="subtitle">{{exercise.name}}</h1>
+<div id="exercise-title">
+    <h1 class="subtitle">{{exercise.name}}</h1>
+    <a href="/exercises/{{exercise.bodyPart}}">Back</a>
+</div>
 
-<dv>
+<div id="exercise-detail-page">
     <div id="exercise">
         <div id="img-details">
             <img src="{{gifUrl}}">
@@ -8,7 +11,7 @@
         <div id="exercise-info">
             <p><b>Body Part:</b> {{exercise.bodyPart}}</p>
             <p><b>Equipment:</b> {{exercise.equipment}}</p>
-            <p><b>Target:</b> {{target}}</p>
+            <p><b>Target:</b> {{exercise.target}}</p>
             <p><b>Secondary Muscles:</b>
                 {{#each exercise.secondaryMuscles}}
                     {{this}} |
@@ -25,5 +28,6 @@
             {{/each}}
         </ol>
     </div>
-    <a href="/exercises/add/{{exercise._id}}">Add</a>
-</dv>
+
+    <a href="/exercises/add/{{exercise._id}}">Add {{exercise.name}}</a>
+</div>

@@ -16,7 +16,11 @@ router.get("/", isTempPassword, (req, res, next) => {
 router.get("/:bodyPart", isTempPassword, (req, res, next) => {
     Exercise.find({bodyPart: req.params.bodyPart})
     .then((exercises)=>{
-        res.render("exercises/exercises", {exercises});
+        const bodyPart = req.params.bodyPart;
+        const bodyPartLetter = bodyPart.charAt(0).toUpperCase();
+        const bodyPartUpdated = bodyPartLetter + bodyPart.slice(1);
+
+        res.render("exercises/exercises", {exercises, bodyPartUpdated});
     })
     .catch((err)=>{
         next(err);
@@ -55,6 +59,7 @@ router.post("/add/:id", isLoggedIn, isTempPassword, async (req, res, next)=>{
             {multi: true}
         );
 
+        req.flash("successMessage",`You successfully added ${exerciseAdded.name}`);
         res.redirect("/calendars");
     } catch(err){
         next(err)
@@ -65,18 +70,18 @@ router.post("/add/:id", isLoggedIn, isTempPassword, async (req, res, next)=>{
 router.get("/:bodyPart/:idApi", isLoggedIn, isTempPassword, async (req, res, next) => {
 
     try{
-        // const options = {
-        //     method: 'GET',
-        //     url: `https://exercisedb.p.rapidapi.com/exercises/exercise/${req.params.idApi}`,
-        //     headers: {
-        //         'X-RapidAPI-Key': process.env.API_KEY_EX,
-        //         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
-        //     }
-        // };
+        const options = {
+            method: 'GET',
+            url: `https://exercisedb.p.rapidapi.com/exercises/exercise/${req.params.idApi}`,
+            headers: {
+                'X-RapidAPI-Key': process.env.API_KEY_EX,
+                'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+            }
+        };
 
-        // const response = await axios.request(options);
+        const response = await axios.request(options);
 
-        // console.log(response.data);
+        console.log(response.data);
 
         console.log("-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-")
 
@@ -84,8 +89,7 @@ router.get("/:bodyPart/:idApi", isLoggedIn, isTempPassword, async (req, res, nex
 
         console.log(exercise);
         
-        // res.render("exercises/exercise-details", {gifUrl: response.data.gifUrl, exercise});
-        res.render("exercises/exercise-details", {exercise});
+        res.render("exercises/exercise-details", {gifUrl: response.data.gifUrl, exercise});
     } catch(err){
         next(err);
     }

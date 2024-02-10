@@ -1,4 +1,8 @@
 <h1 class="subtitle">Calendars</h1>
+ 
+{{#unless calendars}}
+    <h3 class="no-header">No Calendars</h3>
+{{/unless}}
 
 {{#each calendars}}
 <div id="title-div">
@@ -13,128 +17,131 @@
     </form>
 </div>
 
-<div id="calendar">
-    <div class="calendar-day">
-        <h3>Monday</h2>
-        {{#each monday}}
-            <div class="exercise-calendar">
-                <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
-                <div class="routine-info">
-                    <p><b>Sets: </b>{{setCount}}</p>
-                    <p><b>Reps: </b>{{repCount}}</p>
+<div id="calendar-page">
+
+    <div id="calendar">
+        <div class="calendar-day">
+            <h3>Monday</h2>
+            {{#each monday}}
+                <div class="exercise-calendar">
+                    <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
+                    <div class="routine-info">
+                        <p><b>Sets: </b>{{setCount}}</p>
+                        <p><b>Reps: </b>{{repCount}}</p>
+                    </div>
+                    <form action="/routines/delete/{{_id}}" method="post">
+                        <button>Delete</button>
+                    </form>
                 </div>
-                <form action="/routines/delete/{{_id}}" method="post">
-                    <button>🗑️</button>
-                </form>
-            </div>
-        {{/each}}
+            {{/each}}
+        </div>
+
+        <div class="calendar-day">
+            <h3>Tuesday</h2>
+            {{#each tuesday}}
+                <div class="exercise-calendar">
+                    <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
+                    <div class="routine-info">
+                        <p><b>Sets: </b>{{setCount}}</p>
+                        <p><b>Reps: </b>{{repCount}}</p>
+                    </div>
+                    <form action="/routines/delete/{{_id}}" method="post">
+                        <button>Delete</button>
+                    </form>
+                </div>
+            {{/each}}
+        </div>
+
+        <div class="calendar-day">
+            <h3>Wednesday</h2>
+            {{#each wednesday}}
+                <div class="exercise-calendar">
+                    <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
+                    <div class="routine-info">
+                        <p><b>Sets: </b>{{setCount}}</p>
+                        <p><b>Reps: </b>{{repCount}}</p>
+                    </div>
+                    <form action="/routines/delete/{{_id}}" method="post">
+                        <button>Delete</button>
+                    </form>
+                </div>
+            {{/each}}
+        </div>
+
+        <div class="calendar-day">
+            <h3>Thursday</h2>
+            {{#each thursday}}
+                <div class="exercise-calendar">
+                    <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
+                    <div class="routine-info">
+                        <p><b>Sets: </b>{{setCount}}</p>
+                        <p><b>Reps: </b>{{repCount}}</p>
+                    </div>
+                    <form action="/routines/delete/{{_id}}" method="post">
+                        <button>Delete</button>
+                    </form>
+                </div>
+            {{/each}}
+        </div>
+
+        <div class="calendar-day">
+            <h3>Friday</h2>
+            {{#each friday}}
+                <div class="exercise-calendar">
+                    <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
+                    <div class="routine-info">
+                        <p><b>Sets: </b>{{setCount}}</p>
+                        <p><b>Reps: </b>{{repCount}}</p>
+                    </div>
+                    <form action="/routines/delete/{{_id}}" method="post">
+                        <button>Delete</button>
+                    </form>
+                </div>
+            {{/each}}
+        </div>
+
+        <div class="calendar-day">
+            <h3>Saturday</h2>
+            {{#each saturday}}
+                <div class="exercise-calendar">
+                    <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
+                    <div class="routine-info">
+                        <p><b>Sets: </b>{{setCount}}</p>
+                        <p><b>Reps: </b>{{repCount}}</p>
+                    </div>
+                    <form action="/routines/delete/{{_id}}" method="post">
+                        <button>Delete</button>
+                    </form>
+                </div>
+            {{/each}}
+        </div>
+
+        <div class="calendar-day">
+            <h3>Sunday</h2>
+            {{#each sunday}}
+                <div class="exercise-calendar">
+                    <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
+                    <div class="routine-info">
+                        <p><b>Sets: </b>{{setCount}}</p>
+                        <p><b>Reps: </b>{{repCount}}</p>
+                    </div>
+                    <form action="/routines/delete/{{_id}}" method="post">
+                        <button>Delete</button>
+                    </form>
+                </div>
+            {{/each}}
+        </div>
     </div>
 
-    <div class="calendar-day">
-        <h3>Tuesday</h2>
-        {{#each tuesday}}
-            <div class="exercise-calendar">
-                <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
-                <div class="routine-info">
-                    <p><b>Sets: </b>{{setCount}}</p>
-                    <p><b>Reps: </b>{{repCount}}</p>
-                </div>
-                <form action="/routines/delete/{{_id}}" method="post">
-                    <button>🗑️</button>
-                </form>
-            </div>
-        {{/each}}
-    </div>
-
-    <div class="calendar-day">
-        <h3>Wednesday</h2>
-        {{#each wednesday}}
-            <div class="exercise-calendar">
-                <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
-                <div class="routine-info">
-                    <p><b>Sets: </b>{{setCount}}</p>
-                    <p><b>Reps: </b>{{repCount}}</p>
-                </div>
-                <form action="/routines/delete/{{_id}}" method="post">
-                    <button>🗑️</button>
-                </form>
-            </div>
-        {{/each}}
-    </div>
-
-    <div class="calendar-day">
-        <h3>Thursday</h2>
-        {{#each thursday}}
-            <div class="exercise-calendar">
-                <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
-                <div class="routine-info">
-                    <p><b>Sets: </b>{{setCount}}</p>
-                    <p><b>Reps: </b>{{repCount}}</p>
-                </div>
-                <form action="/routines/delete/{{_id}}" method="post">
-                    <button>🗑️</button>
-                </form>
-            </div>
-        {{/each}}
-    </div>
-
-    <div class="calendar-day">
-        <h3>Friday</h2>
-        {{#each friday}}
-            <div class="exercise-calendar">
-                <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
-                <div class="routine-info">
-                    <p><b>Sets: </b>{{setCount}}</p>
-                    <p><b>Reps: </b>{{repCount}}</p>
-                </div>
-                <form action="/routines/delete/{{_id}}" method="post">
-                    <button>🗑️</button>
-                </form>
-            </div>
-        {{/each}}
-    </div>
-
-    <div class="calendar-day">
-        <h3>Saturday</h2>
-        {{#each saturday}}
-            <div class="exercise-calendar">
-                <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
-                <div class="routine-info">
-                    <p><b>Sets: </b>{{setCount}}</p>
-                    <p><b>Reps: </b>{{repCount}}</p>
-                </div>
-                <form action="/routines/delete/{{_id}}" method="post">
-                    <button>🗑️</button>
-                </form>
-            </div>
-        {{/each}}
-    </div>
-
-    <div class="calendar-day">
-        <h3>Sunday</h2>
-        {{#each sunday}}
-            <div class="exercise-calendar">
-                <a href="/exercises/{{exercise.bodyPart}}/{{exercise.id}}"><h4>{{exercise.name}}</h4></a>
-                <div class="routine-info">
-                    <p><b>Sets: </b>{{setCount}}</p>
-                    <p><b>Reps: </b>{{repCount}}</p>
-                </div>
-                <form action="/routines/delete/{{_id}}" method="post">
-                    <button>🗑️</button>
-                </form>
-            </div>
-        {{/each}}
-    </div>
+    <form action="/calendars/delete/{{_id}}" method="post">
+        <button id="delete-calendar">Delete {{title}}</button>
+    </form>
 </div>
-
-<form action="/calendars/delete/{{_id}}" method="post">
-    <button>Delete {{title}}</button>
-</form>
 
 {{/each}}
 
 
-<a href="/calendars/new">Add Calendar</a>
+<a href="/calendars/new" id="add-calendar">Add Calendar</a>
 
 
 

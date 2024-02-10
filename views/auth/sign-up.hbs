@@ -1,25 +1,25 @@
 <h1 class="subtitle">Sign Up</h1>
 
-<form action="/sign-up" method="post" class="form">
+<form action="/sign-up" method="post" class="form-auth">
     <div>
-        <label>Username</label><br>
+        <label>Username</label>
         <input type="text" name="username" required>
     </div>
 
     <div>
-        <label>Email</label><br>
+        <label>Email</label>
         <input type="text" name="email" placeholder="example@mail.com" required>
     </div>
 
     <div>
-        <label>Password</label><br>
+        <label>Password</label>
         <input type="password" name="password" required>
     </div>
 
-    <div>
+    <div id="confirmation-email">
         <input type="checkbox" name="confirmationEmail" value="confirmationEmail">
-        <label>Receive a confirmation email</label><br>
+        <label>Receive a confirmation email</label>
     </div>
 
-    <button type="submit">Create Account</button>
+    <button type="submit" id="create-account">Create Account</button>
 </form>

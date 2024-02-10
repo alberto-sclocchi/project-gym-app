@@ -81,11 +81,11 @@ router.post("/log-in", (req, res, next) => {
             console.log("Current User:",  req.session.currentUser);
 
             if(req.session.currentUser.isTempPassword){
-                req.flash("successMessage", "Your password needs to be updated.");
+                req.flash("successMessage", "Your password needs to be updated");
                 res.redirect("/login/reset-password");
             } else{
-                req.flash("successMessage", "You successfully logged in.");
-                res.redirect ("/");
+                req.flash("successMessage", "You successfully logged in");
+                res.redirect ("/user-profile");
             }
         }
         else{
@@ -121,6 +121,7 @@ router.post("/profile/edit", uploadImg.single("image"), (req, res, next) => {
 
     User.findByIdAndUpdate(req.session.currentUser._id, updateUser)
     .then(()=>{
+        req.flash("successMessage","Your profile was updated")
         res.redirect("/user-profile");
     })
     .catch((err)=>{
@@ -180,7 +181,7 @@ router.post("/login/forgot-password", async (req, res, next)=>{
             html: `<h2>You requested to reset your password</h2><hr>
             <p>Your temporary password is <b>${newPassword}</b>, use it to create another password.</p>
             <p>Use the provided temporary password to log in and to create a new password. Make sure you won't forget next time ;)</p><hr>
-            <p> Sincerely,<br>your Movies&Celebrities Team</p>`// html body
+            <p> Sincerely,<br>your FitHub Team</p>`// html body
           });
       
           res.redirect("/log-in");
@@ -215,7 +216,7 @@ router.post("/login/reset-password", async (req, res, next)=>{
 
             //redirect
             req.flash("successMessage","Your password was updated.");
-            res.redirect("/");
+            res.redirect("/user-profile");
 
         } else{
             req.flash("errorMessage","The temporary password is incorrect.");

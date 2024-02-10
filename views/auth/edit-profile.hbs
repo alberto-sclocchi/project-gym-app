@@ -1,20 +1,20 @@
 <h1 class="subtitle">Edit Profile</h1>
 
-<form action="/profile/edit" method="post" class="form" enctype="multipart/form-data">
-    <div>
-        <label>Image</label><br>
+<form action="/profile/edit" method="post" class="form-auth" enctype="multipart/form-data">
+    <div id="img-div-edit">
+        <label>Image</label>
         <input type="file" name="image" value="{{user.image}}">
     </div>
 
     <div>
-        <label>Username</label><br>
+        <label>Username</label>
         <input type="text" name="username" value="{{user.username}}" required>
     </div>
 
     <div>
-        <label>Email</label><br>
+        <label>Email</label>
         <input type="text" name="email" value="{{user.email}}" placeholder="example@mail.com" required>
     </div>
 
-    <button type="submit">Confirm Changes</button>
+    <button type="submit" id="confirm-changes-btn">Confirm Changes</button>
 </form>

@@ -51,6 +51,7 @@ router.post("/add", isLoggedIn, (req, res, next) => {
 
     Progress.create(newProgress)
     .then(()=>{
+        req.flash("successMessage","Your progress was recorded")
         res.redirect("/progress")
     })
     .catch((err)=>{

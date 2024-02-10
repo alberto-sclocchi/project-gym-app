@@ -79,6 +79,7 @@ router.post("/new", isLoggedIn, (req, res, next) => {
         addedBy: req.session.currentUser._id
     })
     .then(()=>{
+        req.flash("successMessage",`You successfully added ${title}`);
         res.redirect("/calendars");
     })
     .catch((err)=>{
@@ -113,6 +114,7 @@ router.post("/delete/:id", isLoggedIn, isTempPassword, async (req, res, next) =>
         const routineDeleted = await Routine.deleteMany({_id: {$in: [...calendar.monday, ...calendar.tuesday, ...calendar.wednesday, ...calendar.thursday, ...calendar.friday, ...calendar.saturday, ...calendar.sunday]}});
         const calendarDeleted = await Calendar.findByIdAndDelete(req.params.id);
 
+        req.flash("successMessage",`Your deletion was successful`);
         res.redirect("/calendars");
 
     }catch (err){

@@ -1,19 +1,21 @@
 <h1 class="subtitle">Log in</h1>
 
-<form action="/log-in" method="post" class="form">
+<form action="/log-in" method="post" class="form-auth">
 
     <div>
-        <label>Email</label><br>
+        <label>Email</label>
         <input type="text" name="email" required>
     </div>
 
     <div>
-        <label>Password</label><br>
+        <label>Password</label>
         <input type="password" name="password" required>
     </div>
 
     <a href="/login/forgot-password" id="forgot-pass" style="font-size: 17px">Forgot password?</a>
 
-    <button type="submit">Log in</button>
-    <a href="/sign-up">Sign Up</a>
+    <div id="log-in-btns">
+        <button type="submit">Log in</button>
+        <a href="/sign-up">Sign Up</a>
+    </div>
 </form>
