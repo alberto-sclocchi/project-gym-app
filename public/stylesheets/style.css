@@ -595,6 +595,15 @@ footer{
   font-weight: 900;
 }
 
+#quote div{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  padding: 40px;
+  border-radius: 20px;;
+}
+
 .no-header{
   margin: 50px;
   text-align: center;
